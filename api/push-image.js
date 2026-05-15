@@ -15,39 +15,19 @@ module.exports = async function handler(req, res) {
   const GITHUB_OWNER = 'agence-disko';
   const GITHUB_REPO = 'veille-dessange';
 
-  // Step 1: Get downloadable thumbnail via TikTok oEmbed
-  let thumbnailUrl;
-  try {
-    const oembedRes = await fetch(
-      `https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}`,
-      { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' } }
-    );
-    if (!oembedRes.ok) {
-      return res.status(400).json({ error: `oEmbed failed: ${oembedRes.status}` });
-    }
-    const oembed = await oembedRes.json();
-    thumbnailUrl = oembed.thumbnail_url;
-    if (!thumbnailUrl) {
-      return res.status(400).json({ error: 'oEmbed returned no thumbnail_url' });
-    }
-  } catch (err) {
-    return res.status(500).json({ error: `oEmbed error: ${err.message}` });
-  }
-
-  // Step 2: Download thumbnail image
-  const imgRes = await fetch(thumbnailUrl, {
+  // Download thumbnail image directly (url = oEmbed thumbnail_url, resolved upstream in N8N)
+  const imgRes = await fetch(url, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
       'Referer': 'https://www.tiktok.com/'
     }
   });
   if (!imgRes.ok) {
-    return res.status(400).json({ error: `Image download failed: ${imgRes.status}`, thumbnailUrl });
+    return res.status(400).json({ error: `Image download failed: ${imgRes.status}`, url });
   }
   const buffer = await imgRes.arrayBuffer();
   const base64 = Buffer.from(buffer).toString('base64');
 
-  // Step 3: Push to GitHub (with SHA retry on 409)
   async function getSha() {
     const r = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
