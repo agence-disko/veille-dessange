@@ -13,6 +13,8 @@
             --black: #0A0A0A;
             --white: #FFFFFF;
             --gray: #F5F5F5;
+            --dark-gray: #333333;
+            --light-gray: #E0E0E0;
         }
 
         * {
@@ -26,415 +28,326 @@
             background-color: var(--gray);
             color: var(--black);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         header {
-            background-color: var(--black);
-            color: var(--white);
+            background-color: var(--white);
+            padding: 40px 20px;
             text-align: center;
-            padding: 4rem 2rem;
-            border-bottom: 4px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 40px;
         }
 
         header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
 
         header h2 {
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1rem;
+            font-weight: 600;
             color: var(--gold);
-            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
         }
 
         header p {
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: var(--dark-gray);
         }
 
         main {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 0 20px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .card {
-            background: var(--white);
+            background-color: var(--white);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--light-gray);
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .card-image-wrapper {
-            position: relative;
+        .card-image {
             width: 100%;
-            padding-top: 133%; /* Aspect ratio 3:4 for TikTok */
-            background-color: #E0E0E0;
-            overflow: hidden;
-        }
-
-        .card-image-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
+            border-bottom: 1px solid var(--light-gray);
         }
 
         .card-content {
-            padding: 1.5rem;
-            flex-grow: 1;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
         }
 
         .author {
-            margin-bottom: 1rem;
-        }
-
-        .author-username {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--black);
-        }
-
-        .author-name {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .metrics {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            margin-bottom: 12px;
             font-size: 0.95rem;
         }
 
-        .metrics span {
+        .author strong {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .author span {
+            color: var(--dark-gray);
+            font-weight: 300;
+            margin-left: 5px;
+        }
+
+        .stats {
             display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
         .description {
-            font-size: 0.95rem;
-            color: #333;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            flex-grow: 1;
         }
 
         .music {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #777;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .insight {
-            background-color: var(--gray);
-            border-left: 4px solid var(--gold);
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
-            margin-top: auto;
-            margin-bottom: 1.5rem;
-        }
-
-        .insight-title {
-            font-weight: 700;
-            font-size: 0.9rem;
+            background-color: #FAF8F2;
+            border-left: 3px solid var(--gold);
+            padding: 12px;
+            font-size: 0.85rem;
             color: var(--black);
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
         }
 
-        .insight p {
-            font-size: 0.9rem;
-            color: #444;
+        .insight strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--gold);
+            font-weight: 700;
         }
 
         .btn {
             display: block;
-            width: 100%;
             text-align: center;
             background-color: var(--black);
             color: var(--white);
-            padding: 1rem;
             text-decoration: none;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 6px;
             font-weight: 600;
-            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: auto;
         }
 
         .btn:hover {
             background-color: var(--gold);
+            color: var(--white);
         }
 
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 30px;
+            font-size: 0.85rem;
+            color: var(--dark-gray);
             background-color: var(--white);
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #EAEAEA;
-        }
-
-        /* Format numbers correctly */
-        .play-count, .like-count {
-            color: var(--gold);
+            border-top: 1px solid var(--light-gray);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Veille TikTok Coiffure</h1>
         <h2>Dessange × Disko</h2>
-        <p>Généré le 26 Octobre 2023</p>
+        <h1>Veille TikTok Coiffure</h1>
+        <p>Tendances, inspirations et insights stratégiques • Novembre 2023</p>
     </header>
 
     <main>
         <div class="grid">
             
-            <!-- Carte 1 -->
+            <!-- Video 1 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p19-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/3091dd05d2ff42e9898cb76fde8a7d39_1709919572~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=4lC4sK0f56cNskON1fzkS5zdsIU%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p19-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/3091dd05d2ff42e9898cb76fde8a7d39_1709919572~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@faick_hair</div>
-                        <div class="author-name">Faick_hair</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">83.8M</span></span>
-                        <span>❤️ <span class="like-count">4.6M</span></span>
-                    </div>
+                    <div class="author"><strong>@faick_hair</strong> <span>Faick_hair</span></div>
+                    <div class="stats"><span>👁 83.8M vues</span> <span>❤️ 4.6M likes</span></div>
                     <p class="description">Beautiful thing💇🏻‍♀️ #beautiful #things #haircut #hairstyle #milano #trend #tiktoker #hairdresser #longhair</p>
                     <div class="music">🎵 Beautiful Things — Benson Boone</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>Le dégradé long volumineux reste une valeur sûre sur TikTok. Dessange peut capitaliser sur cette tendance "Quiet Luxury" en mettant en avant son savoir-faire iconique sur les brushings souples.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        Le dégradé long et structuré, inspiré de la "Butterfly Cut", reste un phénomène viral massif. Une tendance idéale pour mettre en avant l'expertise coupe et le brushing signature de la maison Dessange.
                     </div>
                     <a href="https://www.tiktok.com/@faick_hair/video/7344048507260587296" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
-            <!-- Carte 2 -->
+            <!-- Video 2 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/okBTkEGIDvTFnCcUgEfUAaAANFxPAqFCRieVmO~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=RLQdMmflgkr3hwoB4%2FQF5%2BlekQg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oYAlIkEDAsfF74gAeqv9CRgQVAFWqVAHSYCdSg~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@thomastuccinardi</div>
-                        <div class="author-name">Thomas Tuccinardi</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">726K</span></span>
-                        <span>❤️ <span class="like-count">55.3K</span></span>
-                    </div>
-                    <p class="description">À moi d’élaborer une recette sur-mesure pour la cheffe privée @oceane.sirop 👩‍🍳✨ Vous avez la vision ? 👇 Le résultat demain à 18h 👀</p>
-                    <div class="music">🎵 son original - Thomas Tuccinardi</div>
+                    <div class="author"><strong>@thomastuccinardi</strong> <span>Thomas Tuccinardi</span></div>
+                    <div class="stats"><span>👁 3.9M vues</span> <span>❤️ 329K likes</span></div>
+                    <p class="description">La nouvelle jury du Meillleur Pâtissier @latelierderoxane est dans mon salon 🖤 Objectif : lui faire aimer à nouveau ses cheveux ✨ Suite et résultat demain 👀</p>
+                    <div class="music">🎵 Steam Flower — yasuhiro soda</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>L'expérience ultra-personnalisée et la formulation sur-mesure cartonnent. Dessange a l'opportunité de valoriser son approche experte et son diagnostic premium en salon.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        Le format "Diagnostic en salon" humanise le coiffeur et suscite l'engagement. Dessange peut s'approprier ce format pour prouver son écoute sur-mesure et l'expérience premium offerte en salon.
                     </div>
-                    <a href="https://www.tiktok.com/@thomastuccinardi/video/7660185280766315798" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                    <a href="https://www.tiktok.com/@thomastuccinardi/video/7646825031410027799" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
-            <!-- Carte 3 -->
+            <!-- Video 3 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/okARBignEupAiyE6ICbAykiAKGdAbFf287AlfU~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=GwUZMhSnIg9rfZzgvTwWdGceRuA%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p19-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/e1b265b62c284f13a26e3b4d2895cd2c_1698341769~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@its_shynessl</div>
-                        <div class="author-name">SHYNESS | BEAUTY</div>
+                    <div class="author"><strong>@modshair.france</strong> <span>mod’s hair France</span></div>
+                    <div class="stats"><span>👁 15.7M vues</span> <span>❤️ 634K likes</span></div>
+                    <p class="description">If you see that it’s a sign ! #wolfcut #haircut</p>
+                    <div class="music">🎵 original sound — tvdxcc_ ᖭི༏ᖫྀ</div>
+                    <div class="insight">
+                        <strong>✂️ Insight Tendance</strong>
+                        La Wolfcut et le Shag continuent de dominer les tendances pour un look rebelle chic assumé. Une excellente opportunité pour Dessange de rajeunir sa cible avec des coupes texturisées, modernes et pointues.
                     </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">10.9M</span></span>
-                        <span>❤️ <span class="like-count">680K</span></span>
-                    </div>
-                    <p class="description">Pov : tu préfères t’arracher les cheveux plutôt que de les assumer… Cheryl traumatise ses cheveux mais veut qu’ils soient longs… 😭 résultat: Une alopécie...</p>
+                    <a href="https://www.tiktok.com/@modshair.france/video/7294322330073976097" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                </div>
+            </article>
+
+            <!-- Video 4 -->
+            <article class="card">
+                <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/okARBignEupAiyE6ICbAykiAKGdAbFf287AlfU~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
+                <div class="card-content">
+                    <div class="author"><strong>@its_shynessl</strong> <span>SHYNESS | BEAUTY</span></div>
+                    <div class="stats"><span>👁 10.9M vues</span> <span>❤️ 680K likes</span></div>
+                    <p class="description">Pov : tu préfères t’arracher les cheveux plutôt que de les assumer… Cheryl traumatise ses cheveux mais veut qu’ils soient longs… Résultat: alopécie et cheveux cassants.</p>
                     <div class="music">🎵 original sound — SHYNESS | BEAUTY</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>La réparation capillaire profonde et la décomplexion sont très virales. C'est l'occasion idéale pour Dessange de promouvoir ses protocoles de soins profonds en institut.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        La réparation extrême (chute, cheveux brûlés) génère de la viralité par l'émotion. Dessange peut mettre en avant ses rituels de soin profonds et ses Spas Capillaires comme les remèdes ultimes.
                     </div>
                     <a href="https://www.tiktok.com/@its_shynessl/video/7573769957301964054" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
-            <!-- Carte 4 -->
+            <!-- Video 5 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/oYbaRlzSqEmAEADeVCWFjBREIHDAkcAJnQfTGu~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=86uOBNXnb9avb%2B%2Fe6VN19jtgvBw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/f78f9b86ed8a4d6887d229e099da9f7a_1708081418~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@thomastuccinardi</div>
-                        <div class="author-name">Thomas Tuccinardi</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">18.6K</span></span>
-                        <span>❤️ <span class="like-count">1.2K</span></span>
-                    </div>
-                    <p class="description">Une transformation Blond Honey Copper 🍯 avec les nouveaux Shades EQ ramenés de Las Vegas ✨ J’ai aussi utilisé la gamme Blond Absolu de @Kérastase au bac 💆‍♀️</p>
-                    <div class="music">🎵 son original — Thomas Tuccinardi</div>
+                    <div class="author"><strong>@oceaneavakian</strong> <span>Océane Avakian</span></div>
+                    <div class="stats"><span>👁 2.5M vues</span> <span>❤️ 164K likes</span></div>
+                    <p class="description">Les conseils de la mère Avak’ édition sous la douche 🚿 😂 Bon, quoi de mieux que de vous embarquer avec moi sous la douche pour vous montrer comment faire un shampoing ?</p>
+                    <div class="music">🎵 son original — Océane Avakian</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>Le "Honey Copper" est la nuance star de la saison, mêlant reflets chauds et brillance. Dessange peut s'approprier cette tendance grâce à son expertise en balayage et patine.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        L'éducatif ("comment bien laver ses cheveux") cumule les millions de vues. Dessange pourrait partager les astuces de ses experts pour l'entretien à domicile, renforçant son image de marque pédagogue.
                     </div>
-                    <a href="https://www.tiktok.com/@thomastuccinardi/video/7663530505580678433" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                    <a href="https://www.tiktok.com/@oceaneavakian/video/7336153777294101793" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
-            <!-- Carte 5 -->
+            <!-- Video 6 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oYC1zVEwSCAixiJPDaIi8cv1AeBFCBAI2Al0qh~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=8DKf4UTIo%2BSq8W4tLtMIM%2BvHpYI%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/o0fSAw6BW1s6EAiU2IWiBCzBBjA7LIIa3xKAAi~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@devimarkhair_</div>
-                        <div class="author-name">Devi Mark Hair</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">2.1M</span></span>
-                        <span>❤️ <span class="like-count">168.6K</span></span>
-                    </div>
-                    <p class="description">Aujourd’hui @tess voulait se debarasser de ses reflets rouges 😮‍💨 On a opté pour un semi-permanent qui neutralise tous les reflets et refonce légèrement sa base !</p>
-                    <div class="music">🎵 original sound — JC_004</div>
+                    <div class="author"><strong>@hairby_chrissy</strong> <span>Hairby_chrissy</span></div>
+                    <div class="stats"><span>👁 2.4M vues</span> <span>❤️ 294K likes</span></div>
+                    <p class="description">#juliaroberts who? @Julia wearing two rows of @habithairx wefts in pumpkin spice👩🏼‍🦰 Booking Utah Arizona California!</p>
+                    <div class="music">🎵 Wanna Be Startin' Somethin' — Michael Jackson</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>Les vidéos de correction couleur (color correction) fascinent l'audience. Elles démontrent l'expertise technique des coloristes, un pilier fort de l'identité Dessange.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        Les nuances chaudes, comme le "Pumpkin Spice" ou le cuivré intense, sont très demandées. C'est une excellente accroche visuelle pour valoriser l'excellence technique des coloristes Dessange.
+                    </div>
+                    <a href="https://www.tiktok.com/@hairby_chrissy/video/7663679145469136158" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                </div>
+            </article>
+
+            <!-- Video 7 -->
+            <article class="card">
+                <img src="https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oUAACCX0SifAAIAIaRvvBiTFABD4I6E1G3ALyw~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
+                <div class="card-content">
+                    <div class="author"><strong>@devimarkhair_</strong> <span>Devi Mark Hair</span></div>
+                    <div class="stats"><span>👁 1.8M vues</span> <span>❤️ 133K likes</span></div>
+                    <p class="description">Un beau rendu curly et des longueurs unifiées pour Clarisse. Si vous aviez un doute on fait aussi les cheveux bouclés ! 🥰 @clarice</p>
+                    <div class="music">🎵 original sound - manda — manda</div>
+                    <div class="insight">
+                        <strong>✂️ Insight Tendance</strong>
+                        L'inclusivité des textures (boucles, frisottis assumés) est primordiale sur TikTok. Dessange doit illustrer sa parfaite maîtrise du balayage et de la coupe sur l'intégralité des typologies de cheveux.
+                    </div>
+                    <a href="https://www.tiktok.com/@devimarkhair_/video/7507304296849886486" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                </div>
+            </article>
+
+            <!-- Video 8 -->
+            <article class="card">
+                <img src="https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oYC1zVEwSCAixiJPDaIi8cv1AeBFCBAI2Al0qh~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
+                <div class="card-content">
+                    <div class="author"><strong>@devimarkhair_</strong> <span>Devi Mark Hair</span></div>
+                    <div class="stats"><span>👁 2.1M vues</span> <span>❤️ 168K likes</span></div>
+                    <p class="description">Aujourd’hui @tess voulait se debarasser de ses reflets rouges 😮‍💨 On a opté pour un semi-permanent qui neutralisé tous les reflets et refoncé légèrement sa base !</p>
+                    <div class="music">🎵 original sound — malibugabe</div>
+                    <div class="insight">
+                        <strong>✂️ Insight Tendance</strong>
+                        La "color correction" et la neutralisation de reflets indésirables impressionnent toujours l'audience. Dessange peut s'appuyer sur ces vidéos pour rassurer sur la technicité irréprochable de ses patines.
                     </div>
                     <a href="https://www.tiktok.com/@devimarkhair_/video/7557390174808771862" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
-            <!-- Carte 6 -->
+            <!-- Video 9 -->
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/ocQDqKF2b6gYEBY14ewFFrsAERkFTqzQvgfFRG~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=sLmY2pHeKRmObiKyL5rG2JZrfi8%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
+                <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/ogEr5KQ55AtoAtDPFAf8FiAIAzI5PAefLTOSPE~tplv-tiktokx-origin.image" alt="Thumbnail" class="card-image" onerror="this.style.display='none'">
                 <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@faick_hair</div>
-                        <div class="author-name">Faick_hair</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">141.6K</span></span>
-                        <span>❤️ <span class="like-count">6.9K</span></span>
-                    </div>
-                    <p class="description">Italian Bob 🤌🏼 #haircut #bob #trend #milan</p>
-                    <div class="music">🎵 sonido original — Yami García</div>
+                    <div class="author"><strong>@thomastuccinardi</strong> <span>Thomas Tuccinardi</span></div>
+                    <div class="stats"><span>👁 3.0M vues</span> <span>❤️ 166K likes</span></div>
+                    <p class="description">Ines Lou was desperate… here’s the plan to save her hair ✨#hairtok #diagnosticcoiffure #hairdresser #hairstyle</p>
+                    <div class="music">🎵 son original - Thomas Tuccinardi</div>
                     <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>L'"Italian Bob" allie élégance intemporelle et facilité d'entretien. Cette coupe structurée et luxueuse correspond parfaitement à l'ADN chic et parisien de la maison Dessange.</p>
+                        <strong>✂️ Insight Tendance</strong>
+                        Le storytelling du "sauvetage" crée de la rétention et fidélise la communauté. C'est le véhicule parfait pour incarner la promesse Dessange : redonner vie et beauté à tous les cheveux.
                     </div>
-                    <a href="https://www.tiktok.com/@faick_hair/video/7649799535186955523" target="_blank" class="btn">Voir la vidéo TikTok</a>
-                </div>
-            </article>
-
-            <!-- Carte 7 -->
-            <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p19-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/oQFdeAefYYAmHggpEPv4NKAFrw4AOEQTGAYeRz~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=8iCG4ALkG96DjBPeMmyFErdk8oY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
-                <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@lucasdioslo</div>
-                        <div class="author-name">Lucas Di Oslo</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">400.3K</span></span>
-                        <span>❤️ <span class="like-count">38.2K</span></span>
-                    </div>
-                    <p class="description">Je déteste envoyer ce genre de vidéo à mes clientes mais malheureusement, parfois il vaut mieux choisir ! Balayage ou Lissage, mais les deux ensemble c’est explosif 🙈</p>
-                    <div class="music">🎵 son original — Lucas Di Oslo</div>
-                    <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>L'éducation sur la santé et la chimie du cheveu génère beaucoup d'engagement. Dessange peut se positionner comme le conseiller ultra-expert qui préserve la fibre capillaire.</p>
-                    </div>
-                    <a href="https://www.tiktok.com/@lucasdioslo/video/7660448018008788256" target="_blank" class="btn">Voir la vidéo TikTok</a>
-                </div>
-            </article>
-
-            <!-- Carte 8 -->
-            <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oEiiBwRiA7U2LYaBEpLYv6Pu2AIBAWBFa7E2A~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=BGVaZLVA%2F9GsKPknaRwtRhDq45E%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
-                <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@modshair.france</div>
-                        <div class="author-name">mod’s hair France</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">1.3M</span></span>
-                        <span>❤️ <span class="like-count">99.7K</span></span>
-                    </div>
-                    <p class="description">Diagnostique/ Résultat pour @KIM-MY 🖤 Kim voulait revenir à sa couleur naturelle, le brun, mais avec un vrai changement 👀 On est donc parti sur un hime cut ✂️</p>
-                    <div class="music">🎵 If Looks Could Kill — Spxrnn</div>
-                    <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>Les coupes structurées d'inspiration asiatique (Hime cut) percent sur TikTok. Dessange peut s'inspirer de ces coupes "statement" pour une clientèle audacieuse et avant-gardiste.</p>
-                    </div>
-                    <a href="https://www.tiktok.com/@modshair.france/video/7585622771019894038" target="_blank" class="btn">Voir la vidéo TikTok</a>
-                </div>
-            </article>
-
-            <!-- Carte 9 -->
-            <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oQ0WRnfzqEkAEAFrcCVFdBCEIgDAFvAF7gfJLw~tplv-tiktokx-origin.image?dr=9636&x-expires=1784700000&x-signature=fFmUSgoHsPCq4taGPS8WqKqJ8K8%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5" alt="Miniature vidéo" onerror="this.style.display='none'">
-                </div>
-                <div class="card-content">
-                    <div class="author">
-                        <div class="author-username">@its_shynessl</div>
-                        <div class="author-name">SHYNESS | BEAUTY</div>
-                    </div>
-                    <div class="metrics">
-                        <span>👁 <span class="play-count">759.3K</span></span>
-                        <span>❤️ <span class="like-count">34.8K</span></span>
-                    </div>
-                    <p class="description">POV : Oui, à 57 ans, tu peux avoir les cheveux longs et gris sans que ça te vieillisse… Corinne ne souhaitait pas perdre sa longueurs elle se sent bien avec ses cheveux longs et gris...</p>
-                    <div class="music">🎵 original sound - SHYNESS | BEAUTY</div>
-                    <div class="insight">
-                        <div class="insight-title">✂️ Insight Tendance</div>
-                        <p>L'acceptation assumée des cheveux blancs et longs après 50 ans est très populaire. C'est un axe de communication parfait pour Dessange afin de célébrer toutes les beautés.</p>
-                    </div>
-                    <a href="https://www.tiktok.com/@its_shynessl/video/7662435746804075778" target="_blank" class="btn">Voir la vidéo TikTok</a>
+                    <a href="https://www.tiktok.com/@thomastuccinardi/video/7574104374721465622" target="_blank" class="btn">Voir la vidéo TikTok</a>
                 </div>
             </article>
 
@@ -442,7 +355,7 @@
     </main>
 
     <footer>
-        Veille générée par Disko Intelligence · 26 Octobre 2023
+        Veille générée par Disko Intelligence · Novembre 2023
     </footer>
 
 </body>
